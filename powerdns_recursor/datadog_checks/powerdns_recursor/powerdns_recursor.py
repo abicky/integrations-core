@@ -160,7 +160,7 @@ class PowerDNSRecursorCheck(AgentCheck):
         else:
             url = "http://{}:{}/servers/localhost/statistics".format(config.host, config.port)
 
-        service_check_tags = ['recursor_host:{}'.format(config.host), 'recursor_port:{}'.format(config.port)] + tags
+        service_check_tags = ['recursor_host:{}'.format(config.host), 'port:{}'.format(config.port)] + tags
         headers = {"X-API-Key": config.api_key}
         try:
             request = requests.get(url, headers=headers)
